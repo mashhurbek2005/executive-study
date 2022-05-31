@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+         url('../fonts/roboto-v30-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/roboto-v30-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+  }
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src:url('../fonts/roboto-v30-latin-700.woff2') format('woff2'),
+        url('../fonts/roboto-v30-latin-700.woff') format('woff');
+  }
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    src:url('../fonts/roboto-v30-latin-900.woff2') format('woff2'),
+        url('../fonts/roboto-v30-latin-900.woff') format('woff');
+  }
+
+
 *{
     box-sizing: border-box;
 }
@@ -151,25 +175,31 @@ ul {
     height: 64px;
     margin-bottom: 105px;
     padding-top: 12px;
-    /* padding-right: 90px; */
     padding-bottom: 12px;
     padding-left: 34px;
     display: flex;
     align-items: center;
     background-color: #717CFF;
-    background-image: url("../images/strelka.svg");
-    background-size: 28px 26px;
-    background-position: top 19px right 32px ;
-    background-repeat: no-repeat;
     border-radius: 11px;
 }
 
 .hero-link{
-    margin-right: 29px;
+    display: flex;
+    align-items: center;
     font-weight: 500;
     font-size: 22px;
     line-height: 40px;
     color: #FFFFFF;
+}
+
+.hero-link::after{
+    width: 28px;
+    height: 26px;
+    margin-left: 40px;
+    content: "";
+    background-image: url("../images/strelka.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .hero-img{
@@ -265,51 +295,12 @@ ul {
     width: 344px;
     margin-right: 47px;
     margin-bottom: 50px;
-    padding-top: 135px;
+    padding-top: 29px;
     padding-right: 17px;
     padding-bottom: 35px;
     padding-left: 31px;
     background-color: #fff;
     border-radius: 15px;
-}
-
-.career-item{
-    background-image: url("../images/career-icon.svg");
-    background-size: 76px 76px;
-    background-position: top 29px left 31px;
-    background-repeat: no-repeat;
-}
-
-.admission-item{
-    background-image: url("../images/admission-icon.svg");
-    background-size: 76px 76px;
-    background-position: top 29px left 31px;
-    background-repeat: no-repeat;
-}
-
-.vica-item{
-    margin-right: 0;
-    background-image: url("../images/visa-icon.svg");
-    background-size: 76px 76px;
-    background-position: top 29px left 31px;
-    background-repeat: no-repeat;
-}
-
-.accomodation-item{
-    margin-left: 199px;
-    margin-bottom: 0;
-    background-image: url("../images/home-icon.svg");
-    background-size: 76px 76px;
-    background-position: top 29px left 31px;
-    background-repeat: no-repeat;
-}
-
-.pre-item{
-    margin-bottom: 0;
-    background-image: url("../images/plane-icon.svg");
-    background-size: 76px 76px;
-    background-position: top 29px left 31px;
-    background-repeat: no-repeat;
 }
 
 .heading{
@@ -319,6 +310,49 @@ ul {
     font-size: 24px;
     line-height: 37px;
     color: #37474F;
+}
+
+.heading::before{
+    display: block;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 30px;
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.career-heading::before{
+    background-image: url("../images/career-icon.svg");
+}
+
+.admission-heading::before{
+    background-image: url("../images/admission-icon.svg");
+}
+
+.visa-item{
+    margin-right: 0;
+}
+
+.visa-heading::before{
+    background-image: url("../images/visa-icon.svg");
+}
+
+.accomodation-item{
+    margin-left: 199px;
+    margin-bottom: 0;
+}
+
+.accomodation-heading::before{
+    background-image: url("../images/home-icon.svg");
+}
+
+.pre-item{
+    margin-bottom: 0;
+}
+
+.pre-heading::before{
+    background-image: url("../images/plane-icon.svg");
 }
 
 /* DRY */
@@ -332,6 +366,33 @@ ul {
 }
 .services-desc{
     margin-bottom: 30px;
+}
+
+/* DRY ................ */
+.learn-more{
+    padding-right: 45px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.learn-more-link{
+    display: flex;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: 0.439286px;
+    color: #717CFF;
+    text-decoration: none;
+}
+
+.learn-more-link::after{
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+    background-image: url("../images/strelka.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: "";
 }
 
 /* news section begin */
@@ -378,30 +439,30 @@ ul {
 }
 
 .news-desc{
-    width: 291px;
+    width: 100%;
     padding-top: 28px;
     padding-right: 27px;
     padding-bottom: 62px;
     padding-left: 23px;
 }
 
-.news-date-box{
-    margin-bottom: 15px;
+.news-time{
+    margin-bottom: 17px;
     display: flex;
-    align-items: center;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    color: #565656;
 }
 
-.news-icon{
+.news-time::before{
     width: 21px;
     height: 21px;
     margin-right: 12px;
-}
-
-.news-time{
-    font-weight: 700;
-    font-size: 22px;
-    line-height: 26px;
-    color: #252525;
+    background-image: url("../images/date-icon.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: "";
 }
 
 .news-heading{
@@ -414,11 +475,8 @@ ul {
 }
 
 .join-link-box{
+    width: 226px;
     margin: 0 auto;
-}
-
-.join-link{
-    margin-right: 36px;
 }
 
 /* events section begin */
@@ -506,44 +564,32 @@ ul {
     align-items: center;
 }
 
-/* DRY ................ */
-.learn-more{
-    width: 140px;
-    height: 24px;
-    padding-right: 45px;
-    display: flex;
-    align-items: flex-end;
-    background-image: url("../images/strelka.svg");
-    background-size: 24px 24px;
-    background-position: top 2px right 7px;
-    background-repeat: no-repeat;
-}
-
-.learn-more-link{
-    font-weight: 700;
-    font-size: 17px;
-    line-height: 20px;
-    letter-spacing: 0.439286px;
-    color: #717CFF;
-    text-decoration: none;
-}
-
 .item-time{
     padding-left: 27px;
     display: flex;
     align-items: center;
-    background-image: url("../images/clock-icon.svg");
-    background-size: 24px 24px;
-    background-position: top 2px left 2px;
-    background-repeat: no-repeat;
+    
+    
 }
 
 .time{
+    display: flex;
+    align-items: center;
     font-weight: 900;
     font-size: 16px;
     line-height: 28px;
     letter-spacing: 0.444444px;
     color: #373737;
+}
+
+.time::before{
+    width: 24px;
+    height: 24px;
+    margin-right: 3px;
+    background-image: url("../images/clock-icon.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    content: "";
 }
 
 .points-list{
